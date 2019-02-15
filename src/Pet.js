@@ -15,11 +15,7 @@ class Pet extends React.Component {
       // filter is same as map function
       photos = media.photos.photo.filter(photo => photo["@size"] == "pn");
     }
-    let hero = "https://placecorgi.com/300/300";
-
-    if (photos[0] && photos[0].value) {
-      hero = photos[0].value;
-    }
+    const hero = photos[0] ? photos[0].value : "https://placecorgi.com/300/300";
 
     return (
       // Links to url /details/id
@@ -29,9 +25,7 @@ class Pet extends React.Component {
         </div>
         <div className="info">
           <h1>{name}</h1>
-          <h2>
-            {animal} - {breed} - {location}
-          </h2>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
         </div>
       </Link>
     );
